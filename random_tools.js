@@ -81,3 +81,33 @@ function addMonth(date)
     
     return (String(year) + '-' + String(month));
 }
+
+/*
+ * Subtracts the number of months passed (months) from the date passed (date) and returns the resulting date in yyyy-mm format
+ */
+function date_minus(date, months)
+{
+    var year = date.substr(0,4);
+    year = +year;
+    
+    var month = date.substr(5,2);
+    month = +month;
+    
+    month -= months;
+    if(month < 1)
+    {
+        while(month < 1)
+        {
+            month += 12;
+            year--;
+        }
+    }
+
+    if(month < 10)
+    {
+        month = String(month);
+        month = '0' + month;
+    }
+    
+    return (String(year) + '-' + String(month));
+}
