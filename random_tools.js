@@ -42,6 +42,11 @@ function xLESSy(x,y)
     return false;
 }
 
+/*
+ * Currently finds the difference (in months) between two dates (x,y). The difference will be negative if x precedes y.
+ * Works for any two dates in the format yyyy[./,-]mm*
+ * Example: 2008-09-19 16:48:26
+ */
 function date_diff(x,y)
 {
     var x_year = x.substr(0,4);
@@ -83,9 +88,10 @@ function addMonth(date)
 }
 
 /*
- * Subtracts the number of months passed (months) from the date passed (date) and returns the resulting date in yyyy-mm format
+ * Adds the number of months passed (months) from the date passed (date) and returns the resulting date in yyyy-mm format
+ * If (months) is negative, that number of months will be subtracted from the date (date).
  */
-function date_minus(date, months)
+function date_add(date, months)
 {
     var year = date.substr(0,4);
     year = +year;
@@ -93,13 +99,22 @@ function date_minus(date, months)
     var month = date.substr(5,2);
     month = +month;
     
-    month -= months;
+    month += months;
     if(month < 1)
     {
         while(month < 1)
         {
             month += 12;
             year--;
+        }
+    }
+    
+    if(month > 12)
+    {
+        while(month > 12)
+        {
+            month -= 12;
+            year++;
         }
     }
 
@@ -110,4 +125,20 @@ function date_minus(date, months)
     }
     
     return (String(year) + '-' + String(month));
+}
+
+function date_range(date1,date2)
+{
+    if(date_diff(date1,date2) < 0)
+    {
+        
+    }
+    else if(date_diff(date1,date2) > 0)
+    {
+        
+    }
+    else
+    {
+        return date1; // The dates are the same
+    }
 }
