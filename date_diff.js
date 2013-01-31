@@ -1,7 +1,8 @@
 // Originally written by Caleb Larsen
 // Free to be used and/or modified for any legal purpose--please give credit to the author (Caleb Larsen)
 
-/* Works for any two dates in the format yyyy[./,-]mm*
+/*
+ * Works for any two dates in the format yyyy[./,-]mm*
  * Example: 2008-09-19 16:48:26
  */ 
 function date_diff(x,y)
