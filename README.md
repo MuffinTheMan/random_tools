@@ -21,5 +21,5 @@ Very specific function to convert to an integer and return 0 when we get a whack
 * **date_add.js**  
 Adds the number of months passed (months) from the date passed (date) and returns the resulting date in yyyy-mm format. If (months) is negative, that number of months will be subtracted from the date (date).
 
-
-* **date_range.js**
+* **date_range.js**  
+Dependent on date_diff.js
