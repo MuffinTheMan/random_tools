@@ -158,3 +158,78 @@ function date_range(date1,date2)
         return date1;
     }
 }
+
+function member_for(thenDate)
+{
+  var now = new Date();
+  
+  var thenDay = thenDate.substr(8,2);
+  var thenMonth = +(thenDate.substr(5,2))-1;
+  var thenYear = thenDate.substr(0,4);
+  
+  var then = new Date(thenYear,thenMonth,thenDay);
+  
+  var one_day = 1000*60*60*24;
+  one_year = 365.25;
+  one_month = one_year / 12;
+  var days = (now.getTime() - then.getTime())/one_day;
+    
+  if(days <= 1)
+  {
+    return 'member for 1 day';
+  }
+  else if(days < one_month)
+  {
+    return 'member for ' + Math.round(days) + ' days';
+  }
+  else if(days >= one_month)
+  {
+    var months = Math.round(days / one_month);
+    var years = months / 12;
+    
+    if(months == 1)
+    {
+      return 'member for 1 month';
+    }
+    else if(months < 12)
+    {
+      return 'member for ' + months + ' months';
+    }
+    else
+    {
+      years = Math.floor(years);
+      months = months - 12*years;
+      if(years == 1)
+      {
+        if(months == 1)
+        {
+          return 'member for 1 year, 1 month';
+        }
+        else if(months == 0)
+        {
+          return 'member for 1 year';
+        }
+        else
+        {
+          return 'member for 1 year, ' + months + ' months';
+        }
+      }
+      if(months == 1)
+      {
+        return 'member for ' + years + ' years, 1 month'; 
+      }
+      else if(months == 0)
+      {
+        return 'member for ' + years + ' years';
+      }
+      else
+      {
+        return 'member for ' + years + ' years, ' + months + ' months';
+      }
+    }
+  }
+  else
+  {
+    return 'member for ' + Math.round(days) + ' days';
+  }
+}

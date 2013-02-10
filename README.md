@@ -23,3 +23,5 @@ Adds the number of months passed (months) from the date passed (date) and return
 
 * **date_range.js**  
 Dependent on date_diff.js
+
+* **member_for.js**  
